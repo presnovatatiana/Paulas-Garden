@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paula’s Garden</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Montserrat+Alternates:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 1366px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 470px;
+      background: url('../Bilder/lovestory/image 41.png') no-repeat center/cover;
+    }
+
+    .hero-circle {
+      width: 372px;
+      height: 372px;
+      position: absolute;
+      top: -186px;
+      left: -186px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    .back-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: -3px 3px 4px rgba(0, 0, 0, 0.25);
+      z-index: 10;
+    }
+
+    .back-container img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .back-container a {
+      margin-left: 10px;
+      color: #000;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .star {
+      position: absolute;
+      top: 470px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      transform: translateY(-50%);
+    }
+
+    .progress-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 8px;
+      height: 100%;
+      background: #75A394;
+      z-index: 5;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background: #C32814;
+      height: 0;
+    }
+
+    .content {
+      padding: 60px 5% 60px 105px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      background: linear-gradient(0deg, rgba(217, 213.67, 207, 0.92) 0%, rgba(217, 213.67, 207, 0.92) 100%);
+      background-blend-mode: lighten, linear-burn;
+    }
+
+    .content-text {
+      flex: 1;
+      max-width: 641px;
+    }
+
+    .content-text h1 {
+      color: #C32814;
+      font-size: 32px;
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .content-text .highlight {
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 23.96px;
+      letter-spacing: 0.16px;
+      margin-bottom: 20px;
+    }
+
+    .content-text p {
+      color: #000;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0.16px;
+      margin-bottom: 20px;
+    }
+
+    .content-img {
+      flex: 0 0 445px;
+      height: 483px;
+      margin-left: 20px;
+    }
+
+    .footer {
+      background: #A9B7B2;
+      padding: 60px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin-right: 20px;
+    }
+
+    .footer-column h3 {
+      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .footer-column p, .footer-column a {
+      color: #000;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-logo-column {
+      flex: 0 0 auto;
+    }
+
+    .footer-logo {
+      width: 136px;
+      height: 136px;
+    }
+
+    @media (max-width: 1024px) {
+      .content {
+        flex-direction: column;
+        padding: 40px 3%;
+      }
+      .content-text {
+        max-width: 100%;
+      }
+      .content-img {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-top: 20px;
+      }
+      .footer {
+        padding: 40px 3%;
+        flex-direction: column;
+      }
+      .footer-column {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-circle"></div>
+      <div class="back-container">
+        <a href="../index/index.html"><img src="../Bilder/lovestory/Vector.svg" alt="Back"></a>
+        <a href="../index/index.html">Zurück</a>
+      </div>
+    </div>
+    <img class="star" src="../Bilder/lovestory/star.png" alt="Star" /> <!-- Замените на реальный путь, если есть; иначе используйте placeholder -->
+    <div class="content">
+      <div class="content-text">
+        <h1>Eine Worpsweder Lovestory:<br>Paula’s Garden</h1>
+        <p class="highlight">Seit vier Generationen blühen und gedeihen in Worpswede Schnittblumen, Topfpflanzen und Sträucher und warten auf ihre Käufer.</p>
+        <p>In guter familiärer Tradition und mit der ihr eigenen Begeisterung für alles Grüne und Neue hat Paula Gerken das Geschäft nun umbenannt in Paula’s Garden. Gar nicht zufällig erinnert ihr Vorname an die größte Künstlerin Worpswedes, die Malerin Paula Modersohn-Becker. In Paula’s Garden finden Pflanzenliebhaber jetzt nicht nur kunstvolle Blüten-Arrangements für jedes Fest, sondern auch außergewöhnliche Geschenkideen. Und natürlich kann sich jede Hobbygärtnerin und jeder Freizeitgärtner mit allem nötigen Zubehör versorgen, von Schaufel und Erde bis zu Gartenhandschuh und Düngemittel.</p>
+      </div>
+      <img class="content-img" src="../Bilder/lovestory/Floristin.png" alt="Florist" />
+    </div>
+    <div class="footer">
+      <div class="footer-column">
+        <h3>Paula’s Garden</h3>
+        <p>Osterweder Straße 77<br>27726 Worpswede</p>
+        <p>E-Mail: <a href="mailto:info@paulasgarden.de">info@paulasgarden.de</a><br>Web: <a href="http://www.paulasgarden.de" target="_blank">www.paulasgarden.de</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>Freude schenken</h3>
+        <h3>Grüne Events</h3>
+        <h3>Blühende Angebote</h3>
+        <h3>Blüten News</h3>
+      </div>
+      <div class="footer-column">
+        <h3>Paula’s Garden-Lovestory</h3>
+        <h3>Paula’s Garden entdecken</h3>
+      </div>
+      <div class="footer-logo-column">
+        <img class="footer-logo" src="../Bilder/lovestory/Logo 1.png" alt="Logo" />
+      </div>
+    </div>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+  <script>
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById('progress-bar').style.height = progress + '%';
+    });
+  </script>
+</body>
+</html>

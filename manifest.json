@@ -1,0 +1,10 @@
+{
+  "name": "Paula's Garden",
+  "short_name": "Paula's Garden",
+  "theme_color": "#75a394",
+  "background_color": "#75a394",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "scope": "/",
+  "start_url": "/"
+}

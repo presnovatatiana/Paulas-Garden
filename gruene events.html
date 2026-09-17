@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grüne Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Montserrat+Alternates:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    html { font-size: 16px; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #000;
+      max-width: 85.375rem; /* 1366px */
+      margin: 0 auto;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns:  1fr 2fr 2fr 2fr 1fr;
+      grid-template-rows: auto 14rem 14rem auto 14rem auto auto 1fr auto;
+      grid-template-areas:
+              "back . .  . ."
+              ". zag zag zag ."
+              ". . log . icon"
+              "wide wide wide wide wide"
+              ". sect sect sect ."
+              ". sect1 sect1 sect1 ."
+              ". sect2 sect2 sect2 ."
+              ". sect3 sect3 sect3 ."
+              ". foot foot foot .";
+      gap: 0rem;
+    }
+
+    /* Grid Areas */
+    .back-button {
+      display: flex;
+      grid-area: back;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 2.5rem;
+      padding-left: 2.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      color: #162214;
+      font-weight: bolder;
+
+    }
+    h1 {
+      grid-area: zag;
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 4rem;
+      font-weight: 500;
+      color: #162214;
+      text-shadow: 0 0.25rem 0.25rem rgba(0,0,0,0.25);
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .background {
+      grid-area: wide;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .logo{
+      display: flex;
+      grid-area: log;
+      justify-self:  center;
+      align-self:  center;
+    }
+    .swipe{
+      display: flex;
+      grid-area: icon;
+      justify-self:  center;
+    }
+
+    .background_section1 {
+      display: grid;
+      grid-row: 6/7;
+      grid-column: 1/-1;
+      background: url("img/gruene_events/Floristin.png") center/cover no-repeat;
+      padding: 4rem 2rem;
+      z-index: 1;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+
+    h3{
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+
+    .section {
+      grid-area: sect;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .section1 {
+      grid-area: sect1;
+      display: flex;
+      justify-content: space-around;
+      gap: 4rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      z-index: 2;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .section1 h3 {
+        color: #7D092B;
+    }
+
+    .tab {
+      display: flex;
+      grid-template-columns: 2, 1fr;
+      justify-content: space-between;
+      column-gap: 3rem;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .background_section2 {
+        display: grid;
+        grid-row: 7/8;
+        grid-column: 1/-1;
+        background: url("img/gruene_events/Floristin-3.png") center/cover no-repeat;
+        padding: 4rem 2rem;
+        z-index: 1;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
+    .section2 h3 {
+        color: #C53002;
+    }
+
+    .section2 {
+      grid-area: sect2;
+      display: flex;
+      justify-content: space-around;
+      gap: 4rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      z-index: 2;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .background_section3 {
+        display: grid;
+        grid-row: 8/9;
+        grid-column: 1/-1;
+        background: url("img/gruene_events/Floristin-1.png") center/cover no-repeat;
+        padding: 4rem 2rem;
+        z-index: 1;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
+    .section3 h3 {
+        color: #456C1D;
+    }
+
+    .section3 {
+      grid-area: sect3;
+      display: flex;
+      justify-content: space-around;
+      gap: 4rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      z-index: 2;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+    .anmelde-button{
+        font-size: 1.2rem;
+        font-weight: bolder;
+    }
+
+    .section1 .anmelde-button {
+        color: #7D092B;
+    }
+
+    .section2 .anmelde-button {
+        color: #C53002;
+    }
+
+    .section3 .anmelde-button {
+        color: #456C1D;
+    }
+
+    .footer_bg {
+      grid-row: 9/10;
+      grid-column: 1/-1;
+      background: #A9B7B2;
+    }
+
+
+    footer {
+      grid-area: foot;
+      justify-content: space-around;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    /* Typografie */
+    .section h2 {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #C32814;
+      margin-bottom: 1rem;
+    }
+    .section p { font-size: 1rem; line-height: 1.5rem; margin-bottom: 1rem; }
+    .section strong { font-weight: 600; }
+
+    /* Footer */
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+
+    }
+    .footer-info {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      column-gap: 3rem;
+      row-gap: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .footer-logo {
+      display: flex;
+      justify-content: center; }
+
+    /* Responsive */
+    @media (max-width: 62rem) {
+      .section { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="back-button">
+    <img src="img/lovestory/Vector.svg" alt="Zurück">
+    <a href="index.html">Zurück</a>
+  </div>
+  <h1>Grüne Events</h1>
+
+  <img src="img/lovestory/Logo 1.png" alt="Logo" class="logo">
+  <img src="img/lovestory/Frame.svg" alt="Swipe" class="swipe">
+
+  <img class="background" src="img/gruene_events/image 34.png" alt="Hero Bild">
+
+
+
+  <section class="section">
+    <h2>Wachse über dich hinaus!</h2>
+    <p>Hier findest du alle aktuellen Workshops, Events und Termine in unserem Gartencenter.
+      Wir freuen uns auf dich!</p>
+
+    <h3>Workshops in Paula’s Garden</h3>
+  </section>
+
+  <div class="background_section1"></div>
+
+  <section class="section1">
+    <div>
+      <h3>Paulas Trockenblumenbouquet</h3>
+      <p><strong>Termine:</strong>  vom 16. August bis 29. November 2025,
+        samstags vierzehntägig.</p>
+      <p><strong>Schon zu Paulas Zeiten war sie ein Hingucker, jetzt ist sie wieder hochmodern:</strong></p>
+      <p>Die Trockenblume feiert ihr großes Comeback. Bei richtiger
+        Pflege ist sie jahrelang haltbar – und tröstet mit ihren
+        sanften Farben Blumenfans über die kalte Jahreszeit hinweg.
+        In diesem Workshop suchen sich alle Teilnehmenden zunächst eine
+        Vase aus, anschließend werden ganz individuelle Bouquets aus
+        Trockenblumen zusammengestellt.</p>
+      <div class="tab">
+        <div>
+        <p><strong>Uhrzeit:</strong></p>
+        <p><strong>Dauer:</strong></p>
+        <p><strong>Kosten:</strong></p>
+        <p><strong>max. Teilnehmer:</strong></p>
+        </div>
+        <div>
+        <p>15 Uhr</p>
+        <p>2 Stunden</p>
+        <p>50 Euro, inklusive Vase und Trockenblumen</p>
+        <p>10</p>
+      </div>
+      </div>
+      <div class="anmelde-button">
+        <img src="img/gruene_events/Arrow 1.svg">
+        Anmelden</div>
+      </div>
+
+    <div>
+      <img src="img/gruene_events/Floristin-26 1.png" alt="Bouquet">
+    </div>
+  </section>
+
+
+  <div class="background_section2"></div>
+
+  <section class="section2">
+      <div>
+          <img src="img/gruene_events/Floristin-2.png" alt="Bouquet">
+      </div>
+      <div>
+          <h3>Herbstdeko aus deinem Garten</h3>
+          <p><strong>Termine:</strong>   20. September 2025, 4. Oktober 2025</p>
+          <p><strong>Es muss nicht immer der Kürbis sein.</strong></p>
+          <p>Auch Ähren oder Hagebutten-Zweige können eine wunderschöne Herbstdeko ergeben.
+              In diesem Workshop lernen die Teilnehmenden verschiedene Deko-Ideen kennen,
+              außerdem erfahren sie, wie sie aus den Pflanzen in ihrem eigenen Garten hübsche
+              herbstliche Arrangements zaubern können.</p>
+          <div class="tab">
+              <div>
+                  <p><strong>Uhrzeit:</strong></p>
+                  <p><strong>Dauer:</strong></p>
+                  <p><strong>Kosten:</strong></p>
+                  <p><strong>max. Teilnehmer:</strong></p>
+              </div>
+              <div>
+                  <p>15 Uhr</p>
+                  <p>2 Stunden</p>
+                  <p>30 Euro inklusive Materialien</p>
+                  <p>15</p>
+              </div>
+          </div>
+          <div class="anmelde-button">
+              <img src="img/gruene_events/Arrow 2.svg">
+              Anmelden</div>
+      </div>
+
+  </section>
+
+  <div class="background_section3"></div>
+
+  <section class="section3">
+      <div>
+          <h3>Adventskränze selber machen</h3>
+          <p><strong>Termine:</strong>  15. und 22. November 2025</p>
+          <p><strong>So individuell wie die Teilnehmenden dieses Workshops fallen auch ihre Adventskränze aus.</strong></p>
+          <p>Sie können in alten Kuchenformen, filigranen Birkenästen oder Kaffeetassen entstehen,
+              mit Fichten- oder Kiefernzweigen, Zapfen oder Nüssen, Zimtstangen oder Sternanis
+              dekoriert sein. Paula’s Garden stellt die Materialien, aus denen die Teilnehmenden
+              sich frei bedienen können. Anschließend werden Schritt für Schritt ganz individuelle
+              Adventskränze gefertigt.</p>
+          <div class="tab">
+              <div>
+                  <p><strong>Uhrzeit:</strong></p>
+                  <p><strong>Dauer:</strong></p>
+                  <p><strong>Kosten:</strong></p>
+                  <p><strong>max. Teilnehmer:</strong></p>
+              </div>
+              <div>
+                  <p>15 Uhr</p>
+                  <p>2 Stunden</p>
+                  <p>50 Euro inklusive Materialien</p>
+                  <p>12</p>
+              </div>
+          </div>
+          <div class="anmelde-button">
+              <img src="img/gruene_events/Arrow 3.svg">
+              Anmelden</div>
+      </div>
+
+      <div>
+          <img src="img/gruene_events/Floristin-2 1.png" alt="Bouquet">
+      </div>
+  </section>
+
+  <div class="footer_bg"></div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-info">
+        <strong>Paula’s Garden</strong><br>
+        Osterweder Straße 77<br>
+        27726 Worpswede<br><br>
+        E-Mail: info@paulasgarden.de<br>
+        Web: www.paulasgarden.de
+      </div>
+      <div class="footer-links">
+        <a href="freude_schenken.html">Freude schenken</a>
+        <a href="gruene events.html">Grüne Events</a>
+        <a href="paulas_lovestory.html">Paula´s Garden-Lovestory</a>
+        <a href="bluehende_angebote.html">Blühende Angebote</a>
+        <a href="">Paula’s Garden entdecken</a>
+        <a href="">Blüten News</a>
+      </div>
+      <div class="footer-logo">
+        <img src="img/lovestory/Logo 1.png" alt="Logo">
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

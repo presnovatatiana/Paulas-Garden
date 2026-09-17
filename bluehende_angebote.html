@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blühende Angebote</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Montserrat+Alternates:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    html { font-size: 16px; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #000;
+      max-width: 85.375rem; /* 1366px */
+      margin: 0 auto;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns:  1fr 2fr 2fr 2fr 1fr;
+      grid-template-rows: auto 14rem 14rem auto auto auto 1fr auto;
+      grid-template-areas:
+              "back . . . ."
+              ". zag zag zag ."
+              ". . log . icon"
+              "wide wide wide wide wide"
+              ". sect sect sect ."
+              ". sect2 sect2 sect2 ."
+              ". sect3 sect3 sect3 ."
+              ". foot foot foot .";
+      gap: 0;
+    }
+
+    /* Grid Areas */
+    .back-button {
+      display: flex;
+      grid-area: back;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 2.5rem;
+      padding-left: 2.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      color: #162214;
+      font-weight: bolder;
+
+    }
+    h1 {
+      grid-area: zag;
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 4rem;
+      font-weight: 500;
+      color: #162214;
+      text-shadow: 0 0.25rem 0.25rem rgba(0,0,0,0.25);
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .logo{
+      display: flex;
+      grid-area: log;
+      justify-self:  center;
+      align-self:  center;
+    }
+    .swipe{
+      display: flex;
+      grid-area: icon;
+      justify-self:  center;
+    }
+
+    .background {
+      grid-area: wide;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .background_section {
+      display: grid;
+      grid-row: 4/5;
+      grid-column: 1/-1;
+      padding: 2rem 2rem;
+      z-index: 1;
+      background-color: #D6D3CC33;
+      margin: 0;
+    }
+
+    .section {
+      grid-area: sect;
+      padding-top: 2rem;
+      padding-bottom: 0;
+      z-index: 2;
+      margin: 0;
+    }
+
+    .section2 {
+      grid-area: sect2;
+      padding-top: 5rem;
+      padding-bottom: 0.5rem;
+      z-index: 2;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 0.5rem;
+    }
+
+
+    .section3 {
+      grid-area: sect3;
+      padding-top: 0.25rem;
+      padding-bottom: 5rem;
+      z-index: 2;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 0.5rem;
+    }
+
+    .section3 img {
+      max-width: 332px;
+    }
+
+    .footer_bg {
+      grid-row: 8/9;
+      grid-column: 1/-1;
+      background: #A9B7B2;
+    }
+
+    footer {
+      grid-area: foot;
+      justify-content: space-around;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    /* Typografie */
+    .section h2 {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #C32814;
+      margin-bottom: 1rem;
+    }
+    .section p { font-size: 1rem; line-height: 1.5rem; margin-bottom: 1rem; }
+    .section strong { font-weight: 600; }
+
+    /* Footer */
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+
+    }
+    .footer-info {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      column-gap: 3rem;
+      row-gap: 1rem;
+      font-size: 0.875rem;
+
+      font-weight: 600;
+    }
+
+
+    .img-wrapper {
+      position: relative;
+      max-width: 332px;
+    }
+
+    .img-wrapper img {
+      width: 100%;
+    }
+    .price-tag {
+      position: absolute;
+      top: 8rem;
+      right: 0;
+      background: #E04F1A;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      font-size: 0.8rem;
+      z-index: 2;
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.3s ease;
+    }
+
+    h4{
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .price{
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .img-text {
+      text-align: center;
+      position: absolute;
+      top: 13rem;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #FBEBD0CC ;
+      color: #000000;
+      font-size: 0.85rem;
+      padding: 0.8rem;
+      opacity: 1;
+      
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+    .img-text p {
+      margin-top: 0;
+    }
+
+    .img-wrapper:hover .img-text,
+    .img-wrapper:hover .price-tag,
+    .img-wrapper.active .img-text,
+    .img-wrapper.active .price-tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* Responsive */
+    @media (max-width: 62rem) {
+      .section { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="back-button">
+    <img src="img/lovestory/Vector.svg" alt="Zurück">
+    <a href="index.html">Zurück</a>
+  </div>
+  <h1>Blühende Angebote</h1>
+
+  <img src="img/lovestory/Logo 1.png" alt="Logo" class="logo">
+  <img src="img/lovestory/Frame.svg" alt="Swipe" class="swipe">
+
+  <img class="background" src="img/bluehende_angebote/image 9.png" alt="Hero Bild">
+
+
+
+  <div class="background_section"></div>
+
+  <section class="section">
+   <h2>Wachse über dich hinaus!</h2>
+    <p>Hier findest du die saisonal wechselnden Angebote von Paula's Garden</p>
+    <p><strong>Bereit für die kalte Jahreszeit?</strong> <br>
+      Mit unseren Angeboten kommst du farbenfroh durch Herbst und Winter!</p>
+
+  </section>
+  <section class="section2">
+    <div class="img-wrapper">
+      <img src="img/bluehende_angebote/Herbstastern.png" alt="Herbstastern">
+      <div class="price-tag">2-Liter-Topf, <br> <span class="price"> 3,99 Euro</span></div>
+      <div class="img-text">
+        <h4>Herbstastern-Mix</h4>
+        <p>Wenn viele Blumen schon verblüht sind,<br> bringt die Herbstaster noch frische Farbe<br> in dein Blumenbeet!</p>
+      </div>
+    </div>
+
+    <div class="img-wrapper">
+      <img src="img/bluehende_angebote/image 72.png" alt="Ringelblume">
+      <div class="price-tag">2-Liter-Topf,<br> <span class="price"> 4,79 Euro</span></div>
+      <div class="img-text">
+        <h4>Ringelblume</h4>
+        <p>Diese Alleskönnerin hält herbstlichen Temperaturen problemlos stand und ver-bessert nicht nur die Bodenqualität – sie
+          ist auch als Heilpflanze bekannt.</p>
+      </div>
+    </div>
+
+    <div class="img-wrapper">
+      <img src="img/bluehende_angebote/Herbstanemone 2.png" alt="Herbstanemone">
+      <div class="price-tag">2-Liter-Topf, <br> <span class="price"> 3,99 Euro</span></div>
+      <div class="img-text">
+        <h4>Herbstanemone</h4>
+        <p>Diese Blume besticht durch zarte Blüten, die bis spät im Oktober blühen.</p>
+      </div>
+    </div>
+
+  </section>
+
+    <section class="section3">
+      <div class="img-wrapper">
+        <img src="img/bluehende_angebote/image 53.png" alt="Winterheide" >
+        <div class="price-tag"> <br> <span class="price"> 3,99 Euro</span></div>
+        <div class="img-text">
+          <h4>Winterheide (Roter Strauch)</h4>
+          <p>Die immergrüne Winterheide bringt Farbe in die kalte Jahreszeit und erfreut nicht
+            nur Menschen, sondern auch Bienen, die
+            im Frühjahr von ihnen angezogen werden.</p>
+        </div>
+      </div>
+
+      <div class="img-wrapper">
+        <img src="img/bluehende_angebote/Chrysantheme-1.png" alt="Chrysanteme" >
+        <div class="price-tag">verschiedene Farben, <br> <span class="price">4,99 Euro</span></div>
+        <div class="img-text">
+          <h4>Chrysantheme</h4>
+          <p>Anspruchslos und pflegeleicht: <br> Die Chrysantheme ist die perfekte Herbstblume für Anfänger!</p>
+        </div>
+      </div>
+
+      <div class="img-wrapper">
+        <img src="img/bluehende_angebote/image 59.png" alt="Alpenveilchen" >
+        <div class="price-tag">10,5 cm Topf, <br>  <span class="price">3,99 Euro</span> </div>
+        <div class="img-text">
+          <h4>Alpenveilchen</h4>
+          <p>Die zarten Blüten des Alpenveilchens sind zeitlos – und blühen sogar bis Februar!</p>
+        </div>
+      </div>
+
+    </section>
+
+  <div class="footer_bg"></div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-info">
+        <strong>Paula’s Garden</strong><br>
+        Osterweder Straße 77<br>
+        27726 Worpswede<br><br>
+        E-Mail: info@paulasgarden.de<br>
+        Web: www.paulasgarden.de
+      </div>
+      <div class="footer-links">
+        <a href="freude_schenken.html">Freude schenken</a>
+        <a href="gruene events.html">Grüne Events</a>
+        <a href="paulas_lovestory.html">Paula's Garden-Lovestory</a>
+        <a href="bluehende_angebote.html">Blühende Angebote</a>
+        <a href="">Paula's Garden entdecken</a>
+        <a href="">Blüten News</a>
+      </div>
+      <div class="footer-logo">
+        <img src="img/lovestory/Logo 1.png" alt="Logo">
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

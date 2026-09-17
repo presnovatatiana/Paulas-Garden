@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paula’s Garden</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Montserrat+Alternates:wght@600&display=swap" rel="stylesheet">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    width: 1366px;
+    height: 1024px;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .page {
+    position: relative;
+    width: 100%;
+    background: #fff;
+  }
+
+  /* Основные изображения */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 470px;
+    background: url('../Bilder/lovestory/image\ 41.png') no-repeat center/cover;
+  }
+
+  .hero-circle {
+    position: absolute;
+    width: 372px;
+    height: 372px;
+    left: -186px;
+    top: -186px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .content-section {
+    position: relative;
+    padding: 60px 10%;
+    max-width: 1366px;
+    height: 700px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #C32814;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.16px;
+    color: black;
+    margin-bottom: 20px;
+  }
+
+  .highlight {
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  img.floating {
+    position: absolute;
+    right: 10%;
+    width: 445px;
+    height: 483px;
+    top: 150px;
+    object-fit: cover;
+  }
+
+  /* Footer */
+  footer {
+    background: #A9B7B2;
+    padding: 60px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  footer div {
+    margin-bottom: 20px;
+  }
+
+  footer h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  footer p, footer a {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Прогресс-бар прокрутки */
+  #progress-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 100%;
+    background: #75A394;
+  }
+
+  #progress-bar {
+    width: 100%;
+    background: #C32814;
+    height: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="small-box"><a href="../index/index.html"><img src="../Bilder/lovestory/Vector.svg" alt=""></a></div>
+  <div class="back-text"><a href="../index/index.html">Zurück</a></div>
+  <div class="hero-circle"></div>
+  </div>
+
+  <div class="content-section">
+    <h1>Eine Worpsweder Lovestory:<br>Paula‘s Garden</h1>
+    <p class="highlight">Seit vier Generationen blühen und gedeihen in Worpswede Schnittblumen, Topfpflanzen und Sträucher und warten auf ihre Käufer.</p>
+    <p>In guter familiärer Tradition und mit der ihr eigenen Begeisterung für alles Grüne und Neue hat Paula Gerken das Geschäft nun umbenannt in Paula’s Garden. Gar nicht zufällig erinnert ihr Vorname an die größte Künstlerin Worpswedes, die Malerin Paula Modersohn-Becker. In Paula’s Garden finden Pflanzenliebhaber jetzt nicht nur kunstvolle Blüten-Arrangements für jedes Fest, sondern auch außergewöhnliche Geschenkideen. Und natürlich kann sich jede Hobbygärtnerin und jeder Freizeitgärtner mit allem nötigen Zubehör versorgen, von Schaufel und Erde bis zu Gartenhandschuh und Düngemittel.</p>
+    <img class="floating" src="../Bilder/lovestory/Floristin.png" alt="Bild">
+  </div>
+
+  <footer>
+    <div>
+      <h3>Paula’s Garden</h3>
+      <p>Osterweder Straße 77<br>27726 Worpswede</p>
+      <p>E-Mail: info@paulasgarden.de<br>Web: <a href="http://www.paulasgarden.de" target="_blank">www.paulasgarden.de</a></p>
+    </div>
+    <div>
+      <h3>Freude schenken</h3>
+      <h3>Grüne Events</h3>
+      <h3>Blühende Angebote</h3>
+      <h3>Blüten News</h3>
+    </div>
+    <div>
+      <h3>Paula´s Garden-Lovestory</h3>
+      <h3>Paula’s Garden entdecken</h3>
+    </div>
+    <img src="../Bilder/lovestory/Logo 1.png" alt="Logo" style="width:136px; height:136px;">
+  </footer>
+
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+</div>
+
+<script>
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById('progress-bar').style.height = progress + '%';
+  });
+</script>
+
+</body>
+</html>

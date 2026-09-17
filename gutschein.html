@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paula’s Garden - Gutschein</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Montserrat+Alternates:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    html { font-size: 16px; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #000;
+      max-width: 85.375rem; /* 1366px */
+      margin: 0 auto;
+    }
+
+    /* ========== GRID LAYOUT ========== */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr 1fr;
+      grid-template-rows: auto auto auto;
+      grid-template-areas:
+              "back h1 h1 ."
+              "sect2 sect2 sect2 sect2"
+              ". foot foot .";
+      gap: 0;
+    }
+
+    /* ---------- HEADER ---------- */
+    .back-button {
+      display: flex;
+      grid-area: back;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 2.5rem;
+      padding-left: 2.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      color: #162214;
+      font-weight: bolder;
+    }
+
+    h1 {
+      grid-area: h1;
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 500;
+      color: #162214;
+      text-shadow: 0 0.25rem 0.25rem rgba(0,0,0,0.25);
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    h2 { font-size: 1.5rem; margin: 0; }
+
+    /* ---------- SECTION ---------- */
+    .section {
+      grid-area: sect2;
+      display: flex;
+      gap: 0.95rem;
+      justify-self: center;
+      margin-bottom: 5rem;
+      margin-top: 10rem;
+    }
+
+    .form {
+      background: url("img/gutschein/image 12.png") center/cover no-repeat;
+      padding: 2rem 3rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      max-width: 26rem;
+    }
+
+    .form fieldset { border: none; padding: 0; margin-bottom: 1rem; }
+
+    .form legend,
+    .form h3 {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      margin-top: 3rem;
+      color: #162214;
+      gap: 1rem;
+    }
+
+    .wunschbetrag { display: grid; grid-template-columns: repeat(2, auto); }
+
+    .form label { font-size: 0.95rem; display: block; margin-top: 1.5rem; }
+
+    .form input[type="text"],
+    .form input[type="number"] {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      font-size: 1rem;
+      border: 1px solid #000;
+      background: #FFFFFFB2;
+      gap: 1rem;
+    }
+
+    .form input[type="radio"] { margin-right: 0.4rem; }
+    .form input[type="checkbox"] { margin-right: 0.5rem; }
+
+    .form button {
+      background-color: #90B2A1;
+      color: #000;
+      border: 2px solid #162214;
+      font-weight: 600;
+      padding: 0.9rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .form button:hover { background-color: #7fa392; }
+
+    /* ---------- BILDER ---------- */
+    .foto {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .fotoauswahl1 img {
+      max-width: 600px;
+    }
+
+    .fotoauswahl2 {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .fotoauswahl2 img {
+      width: 190px;
+      height: auto;
+      filter: grayscale(100%);
+      cursor: pointer;
+      transition: filter 0.3s;
+    }
+
+    .thumbnail.active { filter: none; }
+
+    /* ---------- POP-UP ---------- */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup {
+      background: #D9D6D0CC;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 46rem;
+    }
+
+    .popup h2 {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 1.3rem;
+      color: #162214;
+      margin-bottom: 1rem;
+    }
+
+    .popup p { font-size: 1rem; line-height: 1.5; margin-bottom: 2rem; }
+
+    .popup button {
+      background-color: #90B2A1;
+      color: #000;
+      border: 2px solid #162214;
+      font-weight: 600;
+      padding: 0.6rem 1.5rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .popup button:hover { background-color: #7fa392; }
+
+    /* ---------- FOOTER ---------- */
+    .footer_bg { grid-row: 3/4; grid-column: 1/-1; background: #A9B7B2; }
+
+    footer {
+      grid-area: foot;
+      justify-content: space-around;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-info {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      column-gap: 3rem;
+      row-gap: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .footer-logo { display: flex; justify-content: center; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 62rem) {
+      .section { flex-direction: column; align-items: center; }
+      .fotoauswahl2 { flex-wrap: wrap; justify-content: center; }
+      .form { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="back-button">
+    <img src="img/lovestory/Vector.svg" alt="Zurück">
+    <a href="index.html">Zurück</a>
+  </div>
+
+  <h1>Dein individueller Gutschein</h1>
+
+  <section class="section">
+    <div class="form">
+      <h2>Weitere Angaben für den Geschenkgutschein</h2>
+      <fieldset>
+        <h3>1. Für wen ist der Geschenkgutschein?</h3>
+        <input type="text" placeholder="Name des Beschenkten" required>
+
+        <h3>2. Wähle deinen Wunschbetrag</h3>
+        <div class="wunschbetrag">
+          <label><input type="radio" name="betrag"> 10 Euro</label>
+          <label><input type="radio" name="betrag"> 25 Euro</label>
+          <label><input type="radio" name="betrag"> 50 Euro</label>
+          <label><input type="radio" name="betrag"> 100 Euro</label>
+        </div>
+        <label><input type="radio" name="betrag"> Wunschbetrag
+          <input type="number" placeholder="Euro" style="width:6rem;">
+        </label>
+
+        <h3>3. Angaben zum Käufer</h3>
+        <label>Vorname*<br>
+          <input type="text" required></label>
+        <label>Name*<br>
+          <input type="text" required></label>
+        <label>Straße*<br>
+          <input type="text" required></label>
+        <div style="display:flex; column-gap:2rem;">
+          <label>Hausnummer*<br>
+            <input type="text" required style="flex:1;"></label>
+          <label>PLZ*<br>
+            <input type="number" required style="flex:1;"></label>
+        </div>
+        <label>Ort*<br>
+          <input type="text" required></label>
+      </fieldset>
+
+      <label style="font-size: 0.9rem;">
+        <input type="checkbox" required>
+        Ich habe die Datenschutzerklärung gelesen und stimme der Speicherung meiner Daten zu.*
+      </label>
+
+      <button type="button" onclick="showPopup()">Jetzt verpflichtend kaufen</button>
+      <small>* Pflichtfelder</small>
+    </div>
+
+    <div class="foto">
+      <div class="fotoauswahl1">
+        <img src="img/gutschein/Group 33.jpg" alt="Motiv groß" id="fotoauswahl1">
+      </div>
+      <div class="fotoauswahl2">
+        <img src="img/gutschein/Group 31.jpg" alt="Motiv 1" class="thumbnail">
+        <img src="img/gutschein/Group 34.jpg" alt="Motiv 2" class="thumbnail">
+        <img src="img/gutschein/Group 87.jpg" alt="Motiv 3" class="thumbnail">
+      </div>
+    </div>
+  </section>
+
+  <div class="footer_bg"></div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-info">
+        <strong>Paula’s Garden</strong><br>
+        Osterweder Straße 77<br>
+        27726 Worpswede<br><br>
+        E-Mail: info@paulasgarden.de<br>
+        Web: www.paulasgarden.de
+      </div>
+      <div class="footer-links">
+        <a href="freude_schenken.html">Freude schenken</a>
+        <a href="gruene events.html">Grüne Events</a>
+        <a href="paulas_lovestory.html">Paula´s Garden-Lovestory</a>
+        <a href="bluehende_angebote.html">Blühende Angebote</a>
+        <a href="">Paula’s Garden entdecken</a>
+        <a href="">Blüten News</a>
+      </div>
+      <div class="footer-logo">
+        <img src="img/lovestory/Logo 1.png" alt="Logo">
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ========== POP-UP ========== -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <h3>Bestellung erfolgreich!</h3>
+    <p>
+      Die Bestellung deines Gutscheins ist eingegangen und wird für dich gedruckt.<br><br>
+      Du kannst ihn in <strong>10 Minuten an der Kasse 4</strong> abholen und direkt mit deinen weiteren Einkäufen bezahlen.<br><br>
+      Wir wünschen dir und dem von dir beschenkten Menschen viel Freude damit.<br><br>
+      <strong>Dein Paula’s Garden Team</strong>
+    </p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<script>
+  function showPopup() {
+    document.getElementById('popup').style.display = 'flex';
+  }
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  // ---------- BILD-TAUSCH MIT JS ----------
+  const mainImage = document.getElementById("fotoauswahl1");
+  const thumbnails = document.querySelectorAll(".thumbnail");
+
+  thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener("click", () => {
+      // Tausche Bilder
+      const tempSrc = mainImage.src;
+      mainImage.src = thumbnail.src;
+      thumbnail.src = tempSrc;
+
+      // Graufilter: alle grau, nur das aktuelle im großen Bild farbig
+      thumbnails.forEach(t => t.classList.remove("active"));
+      thumbnail.classList.add("active");
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paula’s Garden</title>
+    <link rel="manifest" href="manifest.json">
+
+  <style>
+    html {
+      font-size: 16px; /* 1rem = 16px */
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat Alternates', sans-serif;
+      background: #fff;
+    }
+
+    .canvas {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 0.75fr);
+      grid-template-areas:
+              "col1 col2 col3 col4"
+              "wide wide wide wide";
+      gap: 2rem;
+      max-width: 85.375rem; /* 1366px */
+      margin: 0 auto;
+      padding: 2rem;
+      padding-top: 0rem;
+    }
+
+    @media (max-width: 62rem) { /* < 992px → Tablet */
+      .canvas {
+        grid-template-columns: repeat(2, 1fr, 1fr, 1fr);
+      }
+    }
+
+    .col-1{
+      grid-area: col1;
+    }
+
+    .col-2{
+      grid-area: col2;
+    }
+
+    .col-3{
+      grid-area: col3;
+    }
+
+    .col-4{
+      grid-area: col4;
+    }
+
+    .zeile-2{
+      grid-area: wide;
+      display: flex;
+      justify-content: space-around;
+      align-items: end;
+    }
+
+    .card-img {
+      width: 100%;
+      max-width: 19.6875rem; /* 315px */
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-green {
+      width: 100%;
+      max-width: 19.6875rem;
+      height: 7.5rem; /* 120px */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #75A394;
+      backdrop-filter: blur(0.625rem);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-green:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.25);
+    }
+
+    .card-text a {
+      color: #162214;
+      text-decoration: none;
+      font-size: 1.625rem; /* 26px */
+      font-weight: 600;
+      line-height: 2rem;
+    }
+
+    .card-text a:hover {
+      color: #FBEBD0;
+    }
+
+    .small-img {
+      width: 9.75rem; /* 156px */
+      height: auto;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="canvas">
+
+  <!-- Spalte 1 -->
+  <div class="col-1">
+    <img class="card-img" src="img/Startseite/image-41.jpg" alt="Image"/>
+    <div class=" card-green">
+      <div class="card-text"><a href="paulas_lovestory.html">Paula´s Garden-Lovestory</a></div>
+    </div>
+  </div>
+
+  <!-- Spalte 2 -->
+
+    <div class="col-2">
+    <img class="card-img" src="img/Startseite/image-69.jpg" alt="Image"/>
+    <div class=" card-green">
+      <div class="card-text"><a href="freude_schenken.html">Freude shenken</a></div>
+    </div>
+    </div>
+    <div class="col-3">
+    <img class="card-img" src="img/Startseite/image-37.jpg" alt="Image"/>
+    <div class="card-green">
+      <div class="card-text"><a href="bluehende_angebote.html">Blühende Angebote</a></div>
+    </div>
+    </div>
+
+
+
+
+  <!-- Spalte 3 -->
+  <div class="col-4">
+    <img class="card-img" src="img/Startseite/image-34.jpg" alt="Image"/>
+    <div class=" card-green">
+      <div class="card-text"><a href="gruene events.html">Grüne Events</a></div>
+    </div>
+
+  </div>
+
+
+  <div class="zeile-2">
+  <div class="card-green ">
+    <div class="card-text"><a href="blueten_news/.html">Blüten News</a></div>
+  </div>
+    <div >
+  <img class="small-img" src="img/Startseite/Logo 1.png" alt="Small"/>
+    </div>
+  <div class="card-green ">
+    <div class="card-text"><a href="pg_entdecken.html">Paula’s Garden entdecken</a></div>
+  </div>
+  </div>
+</div>
+
+</body>
+</html>
